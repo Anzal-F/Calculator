@@ -40,16 +40,21 @@
 
         function appendToDisplay(value) {
             calculation += value;
-            document.getElementById('display').innerText = calculation;
+            updateDisplay();
         }
 
         function calculateResult() {
-            calculation = eval(calculation);
-            document.getElementById('display').innerText = calculation;
+            const result = eval(calculation);
+            calculation = calculation + '=' + result; // Concatenate question and answer
+            updateDisplay();
         }
 
         function clearDisplay() {
             calculation = '';
+            updateDisplay();
+        }
+
+        function updateDisplay() {
             document.getElementById('display').innerText = calculation;
         }
     </script>
